@@ -1,0 +1,22 @@
+<div class="container">
+
+<br>
+<div class="row" style="width:1000px; margin-left:50px" data-ng-init="fetchAllPendingBlogs()" >
+		<div ng-repeat="bg in blogs">
+			<!-- List<Job> response.data -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				 <h2><i>
+						{{bg.blogName}}
+					</h2></i></div>
+			
+			<div class="panel-body">
+		<h4><b>Created On : </b>{{bg.createDate | date:'medium'}}</h4>
+			<h4><b>Blog Context : </b>{{bg.blogContext}}</h4>
+			<button class="btn btn-primary" data-ng-click="approveBlog(bg)">Approve Blog</button>
+			<button class="btn btn-primary" data-ng-click="rejectBlog(bg)">Reject Blog</button>
+			</div>
+		</div>
+	</div>
+</div><br>
+</div>

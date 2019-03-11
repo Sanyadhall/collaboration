@@ -1,0 +1,51 @@
+<div class="container">
+
+<br>
+<div class="row" style="width:1000px; margin-left:50px" data-ng-init="fetchAllBlogs()" >
+		<div ng-repeat="bg in blogs">
+			<!-- List<Job> response.data -->
+			<div class="panel panel-default">
+				<div class="panel-heading">
+				 <h2><i>
+				 		<a href="#!getBlog/{{bg.blogId}}"><h2><i>
+						{{bg.blogName}}
+					</i></h2></a>
+					</i>
+					</h2>
+			
+			<div class="panel-body">
+		<h4><b>Created On : </b>{{bg.createDate | date:'medium'}}</h4>
+			<h4><b>Blog Context : </b>{{bg.blogContext}}</h4>
+			<!-- <h4 >
+			<a href="" data-ng-click="incrementLikes(bg)">
+				<span class="glyphicon glyphicon heart-empty"></span> {{bg.likes}} <b>Likes</b>
+			</a>
+			
+			&nbsp;&nbsp;
+			
+			<a href="#">
+          	<span class="glyphicon glyphicon-comment"></span>Comments
+        	</a>
+	
+			
+			</h4>
+			
+			
+		
+			<div>
+				<textarea rows="3" cols="50" ng-model="commentTxt"></textarea>
+				<button type="button" class="btn btn-primary" ng-click="addComment(bg.blogId,commentTxt)">Post Comment</button><br/>
+				<a ng-click="onShowComments(bg.blogId)">comments</a>
+				<ul style="list-style:none" ng-show="showComments">
+					<li ng-repeat="comment in comments|orderBy:'-commentedOn'">
+						{{comment.commentText}}&nbsp;<b>Commented By : {{comment.commentedBy}}</b>
+					</li>
+				</ul>
+			</div>
+		 -->	
+		</div>
+	</div>
+</div><br>
+</div>
+</div>
+</div>

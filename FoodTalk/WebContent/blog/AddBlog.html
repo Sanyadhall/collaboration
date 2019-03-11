@@ -1,0 +1,26 @@
+<div class="container"><div align="center">
+<h2 align="center">Add Blog</h2>
+<hr/>
+<br/>
+<br/>
+<form ng-submit="addBlog()" style="width:600px">
+
+
+<div class="col form-group">
+<label class="col-sm-3">Blog Title:</label>
+<input type="text" ng-model="blog.blogName" class="form-control" required>
+</div>
+
+<div class="col form-group">
+<label class="col-sm-4">Blog Context:</label>
+<textarea type="text" ng-model="blog.blogContext" class="form-control"  rows="9" required ></textarea>
+</div>
+
+
+ <div align="center" class="col-md-12">
+                       <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Add Blog">
+                    </div>
+
+</form>
+</div>
+</div>

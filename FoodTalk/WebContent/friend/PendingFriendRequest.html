@@ -1,0 +1,31 @@
+<style>
+.t{
+padding-top:130px; 
+}
+</style>
+<div class="t" data-ng-init="fetchAllPendingUsers()">
+<div align="center"><font size="7"><i><b>Pending Requests</b></i></font></div><br><br>
+<h1 ng-if="pendingUsers.length==0">No Pending Requests</h1>
+<div class="container">
+<br><table class="table table-striped">
+<tr ng-repeat="r in pendingUsers">
+<td><h2><b>Email : </b>{{r.fromId.email}}</h2>
+<h2><b>Name :</b> {{r.fromId.firstName}} &nbsp;{{r.fromId.lastName}}</h2>
+
+<h2>Phone Number : </b>{{r.fromId.mobileNumber}}</h2>
+
+
+</td>
+
+
+<td>
+<img src="http://localhost:5467/Food_middleware/getimage/{{r.fromId.email}}" alt="No Image" height="150px" width="150px" style="margin-top:10px">
+</td>
+<td>
+<button type="button" class="btn btn-primary" ng-click="acceptRequest(r)" style="margin-top:70px">Accept</button>
+<button type="button" class="btn btn-primary" ng-click="deleteRequest(r)" style="margin-top:70px">Delete </button>
+
+</td>
+</tr>
+</table></div>
+</div>

@@ -1,0 +1,43 @@
+<div class="container" ng-controller="UserController">
+
+<h1 align="center">Update Profile</h1>
+<hr/>
+<br/>
+<br/>
+
+<form ng-submit="update()">
+
+    
+	<div class="form-row">
+		<div class="col form-group">
+			<label for="firstName">First name </label>   
+		  	<input type="text" class="form-control" id="firstName" placeholder="Enter First Name" name="firstName" data-ng-model="currentUser.firstName" required >
+		</div> <!-- form-group end.// -->
+		<div class="col form-group">
+			<label for="lastName">Last name</label>
+		  	<input type="text" class="form-control" id="lastName" placeholder="Enter Last Name" name="lastName" data-ng-model="currentUser.lastName" required>
+		</div> <!-- form-group end.// -->
+	</div> <!-- form-row end.// -->
+	<div class="form-group">
+		<label for="email">Email address</label>
+		<input type="email" class="form-control"  id="email" placeholder="Enter email" name="email" data-ng-model="currentUser.email" required readOnly="true">
+		</div>
+	<div class="form-group">
+		<label>Change Password :</label>
+	    <input class="form-control" type="password"  id="password" placeholder="Enter Password" name="password" data-ng-model="currentUser.password" required="required">
+	</div> <!-- form-group end.// -->  
+	<div class="form-group">
+		<label for="mobileNumber">Mobile Number</label>
+	    <input type="tel" pattern="[6-9]{1}[0-9]{9}" class="form-control" id="mobileNumber" placeholder="Enter Phonenumber" name="mobileNumber" data-ng-model="currentUser.mobileNumber"  maxlength="10" required>
+	</div> <!-- form-group end.// -->  
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block"> Update  </button>
+    </div> <!-- form-group// -->      
+    
+    
+                                           
+       
+</form>
+
+<hr/>
+</div>

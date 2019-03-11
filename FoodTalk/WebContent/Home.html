@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>FoodTalk</title>
+  <link rel="stylesheet" href="css4\\Mycss.css">
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> 
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-cookies.js"></script>
+
+    
+  
+  
+<script src="js//MyAngular.js"></script>
+<script src="controllers//usercontroller.js"></script>
+<script src="controllers//jobcontroller.js"></script>
+<script src="controllers//blogcontroller.js"></script>
+<script src="controllers//friendcontroller.js"></script>
+<script src="controllers//chatcontroller.js"></script>
+<script src="chat//chatservice.js"></script>
+<script src="js//sockjs.js"></script>
+<script src="js//stomp.js"></script>
+
+
+
+
+
+
+<style>
+fieldset {   
+  display: block;
+  margin-left: 2px;
+  margin-right: 2px;
+  padding-top: 0.35em;
+  padding-bottom: 0.625em;
+  padding-left: 0.75em;
+  padding-right: 0.75em;
+  border: 2px groove (internal value);
+}
+</style>
+
+
+</head>
+
+<body ng-app="app">
+
+ <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+    	  <div class="container">
+
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-brand-centered">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <div class="navbar-brand navbar-brand-centered">FoodTalk</div>
+		    </div>
+
+		   
+		    <div class="collapse navbar-collapse" id="navbar-brand-centered">
+		      <ul class="nav navbar-nav">
+		        <li><a href="#!aboutUs">AboutUs</a></li>
+		      
+		        <li><a href="#">Home</a></li>
+		       
+		        <li class="dropdown">
+		        <a class="dropdown-toggle" href="#!blog" data-toggle="dropdown">Blog
+		        <span class="caret"></span></a>
+		        <ul class="dropdown-menu">
+		        <li><a  ng-show=" currentUser.role=='USER'" href="#!addBlog">Add Blog</a></li>
+		       <li><a  ng-show=" currentUser.role=='USER'" href="#!myBlog">My Blogs</a></li>
+		       <li><a  ng-show=" currentUser.role=='ADMIN'" href="#!viewAllPendingBlog">View All Pending Blog</a></li>
+		       <li><a href="#!viewBlog">View All Blogs</a></li>
+		        
+		        </ul>
+		        </li>
+		       
+		        <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Careers
+        <span class="caret"></span></a>
+        <ul class="dropdown-menu">
+          <li ng-show="currentUser.role=='ADMIN'"><a href="#!addJob">Add Job</a></li>
+          <li><a href="#!getAllJobs">View Job</a></li>
+          <li><a href="#!viewAllAppliedJobs" ng-show="currentUser.role=='ADMIN'">View All Applied Jobs</a></li>
+        
+		         
+		        </ul>
+		        <li><a href="#!chat" ng-show="currentUser.firstName!=undefined" class="btn btn-lg" data-toggle="tooltip" title="Let's Chat">
+          <span class="glyphicon glyphicon-comment"></span> 
+        </a></li>
+		        
+		         <li> <a href="#!/contactUs" class="btn btn-lg" data-toggle="tooltip" title="Contact Us">
+          <span class="glyphicon glyphicon-earphone"></span> 
+        </a></li>
+		        
+		      </ul>
+		      <ul class="nav navbar-nav navbar-right">
+		        
+		       
+		        <li ng-show="currentUser.firstName==undefined"> <a href="#!/login" class="btn btn-lg" data-toggle="tooltip" title="Login">
+          <span class="glyphicon glyphicon-user"></span>  
+        </a></li>	
+        
+        
+        
+        
+         <li class="dropdown"  ng-hide="currentUser.firstName==undefined">
+         <a class="dropdown-toggle"	data-toggle="dropdown" href="" style="color:white"> Hi {{currentUser.firstName}}  
+          <span class="caret"></span></a>
+           <ul class="dropdown-menu">
+            <li><a href="#!updatePic">Update profile Picture</a></li>
+            <li><a href="#!viewProfile">View Profile</a></li>
+         	<li><a href="" ng-click="logout()" ng-controller="UserController">Logout</a></li>
+         	</ul>	 
+         	
+         	<li>
+	<a href="#!uploadprofilepic">
+			<img src="http://localhost:5467/Food_middleware//getimage/{{currentUser.email}}"  ng-show="currentUser.firstName!=undefined" alt="Upload Profilepic"  height="50px" width="50px" class="img-circle"></a>
+</li>
+
+<li class="dropdown"><a href="" class="dropdown-toggle" data-toggle="dropdown" ng-show="currentUser.firstName!=undefined">Friend<b class="caret"></b></a> 
+			<ul class="dropdown-menu">
+			<li><a href="#!suggestedusers" >Suggested Users</a></li>
+			<li><a href="#!pendingrequests" >Pending Requests </a></li>
+			<li><a href="#!friends" >Friends </a></li>
+			</ul>
+			</li>
+         
+         	 
+              	</ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+
+<div ng-view></div>
+
+<div class="footer">
+  <p>CopyRight : Sanya Dhall</p>
+</div>
+
+</body>
+</html>

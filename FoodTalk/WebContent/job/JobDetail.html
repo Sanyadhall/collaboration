@@ -1,0 +1,40 @@
+<style>
+.t{
+padding-top:130px; 
+margin-left:400px;
+}
+</style>
+<div class="t">
+<div align="center" style="margin-right:300px">
+<font size="7"><i>Job Details</i></font></div><br>
+<div class="container"><br>
+	<div class="row" style="width: 800px" data-ng-init="getJobById()">
+		<div class="panel panel-info">
+			<div class="panel panel-heading"><h1><i>{{job.jobTitle}}</i></h1></div>
+			<div class="panel-body">
+				<h3><b>Job Description</b> : {{job.jobDescription}}</h3> <h3><b>Skills
+					Required</b> : {{job.skillsRequired}}</h3> <h3><b>Location</b> :
+				{{job.location}}</h3> <h3><b>Years Of Experience</b> :
+				{{job.yrsofExp}}</h3> <h3><b>Company Name</b> : {{job.companyName}}</h3>
+				<h3><b>Salary</b> : {{job.salary}}</h3> <h3><b>Posted On</b> :
+				{{job.postedOn | date:'medium'}}</h3>
+				
+				
+				<div> <button class="btn btn-primary"  ng-hide="currentUser.role=='ADMIN'">
+					<span ng-show="status==false" data-ng-click="applyJob(job.id)">
+						Apply Job
+					</span> 
+					<span ng-show="status==true">
+						Already Applied
+					</span>
+					</button>
+					
+				</div>
+				
+				
+			</div>
+		</div>
+	</div>
+</div>
+<a href="" style="margin-left:220px"><font size="4">Back To Previous -> Get all Jobs</font></a>
+</div>

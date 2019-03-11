@@ -1,0 +1,27 @@
+<style>
+.t{
+padding-top:130px; 
+}
+</style>
+<div class="t" data-ng-init="fetchAllFriends()">
+<div align="center"><font size="7"><i><b>Friends</b></i></font></div><br><br>
+<h1 ng-if="friends.length==0">No Friends</h1>
+<div class="container">
+<br><table class="table table-striped">
+<tr ng-repeat="frnd in friends">
+<td><h2><b>Email : </b>{{frnd.email}}</h2>
+<h2><b>Name :</b> {{frnd.firstName}} &nbsp;{{frnd.lastName}}</h2>
+
+<h2>Phone Number : </b>{{frnd.mobileNumber}}</h2>
+
+
+</td>
+
+
+<td>
+<img src="http://localhost:5467/Food_middleware/getimage/{{frnd.email}}" alt="No Image" height="150px" width="150px" style="margin-top:10px">
+</td>
+
+</tr>
+</table></div>
+</div>
